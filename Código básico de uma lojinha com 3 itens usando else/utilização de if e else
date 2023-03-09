@@ -1,0 +1,48 @@
+package lojinha;
+
+import java.util.Scanner;
+
+public class loja {
+	public static String cestinha;
+	public static int doce,coca,salgadinho,precofinal;
+	public static void main(String[] args) {
+		abordageminicial();
+		notafiscal();
+	}
+	private static void abordageminicial() {
+		Scanner ler = new Scanner(System.in);
+	System.out.println(" O que deseja?\nTemos Doce 1R$\nCoca 5R$\nSalgadinho 3R$");
+	cestinha=ler.nextLine();
+	if(cestinha.contains ("doce")) {
+		System.out.println("Quantas quantidades você deseja?");
+		doce=ler.nextInt();
+		notafiscal();
+	}else if(cestinha.contains("coca")) {
+		System.out.println("Quantas quantidades você deseja?");
+		coca=ler.nextInt();
+		notafiscal();
+	}else if(cestinha.contains("salgadinho")) {
+		System.out.println("Quantas quantidades você deseja?");
+		salgadinho=ler.nextInt();
+		notafiscal();
+	}else {
+		System.out.println("Não temos isso no nosso estoque, por favor escolha uma das opções abaixo");
+		abordageminicial();
+	}
+	
+	}
+	private static void notafiscal() {
+		Scanner ler = new Scanner(System.in);
+		String resposta;
+		System.out.println("algo amais?");
+		resposta=ler.nextLine();
+		if(resposta.contains("sim")) {
+			abordageminicial();
+		}else {
+			precofinal=doce*1 + coca*5 + salgadinho*3;
+			System.out.println("Você comprou " + doce + " doce\n"+ coca + " coca\n" + salgadinho + " salgadinho" );
+			System.out.println("Sua compra deu no total " + precofinal + " R$");
+		}
+		
+	}
+}
